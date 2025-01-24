@@ -34,7 +34,7 @@
   
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
-    "server": "json-server --watch db.json --port 5000"
+    "server": "npx json-server --watch db.json --port 8080"
     
   },
   "eslintConfig": {

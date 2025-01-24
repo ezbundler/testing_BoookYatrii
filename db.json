@@ -6,7 +6,7 @@
       "email": "john@example.com",
       "password": "password123",
       "phone": "123456789",
-      "role": "user"
+      "role": "admin"
     },
     {
       "id": "2",
@@ -14,10 +14,10 @@
       "email": "akash@gmail.com",
       "password": "admin@1234",
       "phone": "8235552552",
-      "age": "23",
+      "age": "25",
       "role": "admin",
       "address": "n-312, Malwa County Indore",
-      "profile": "backpacker2"
+      "profile": "wanderer"
     },
     {
       "id": "3",
@@ -701,6 +701,24 @@
         "adhaarCardNo": "123456789101",
         "phoneNumber": "1234567890",
         "email": "ronit@gmail.com"
+      }
+    },
+    {
+      "id": "9836",
+      "useremail": "akash@gmail.com",
+      "seatno": [
+        "U4",
+        "L19"
+      ],
+      "busId": "2",
+      "date": "22/01/2025",
+      "userDetails": {
+        "name": "akash chaudhary",
+        "age": "25",
+        "gender": "Male",
+        "adhaarCardNo": "123456789101",
+        "phoneNumber": "1234567890",
+        "email": "akash@gmail.com"
       }
     }
   ]

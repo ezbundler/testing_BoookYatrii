@@ -12,7 +12,7 @@ const Navbar = ({profilepic}) => {
   const [userLoggedIn, setUserLoggedIn] = useState(false);
   const [user, setUser] = useState('');
   const navigate = useNavigate();
-
+  const port = process.env.REACT_APP_PORT;
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };

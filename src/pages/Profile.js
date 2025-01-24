@@ -27,7 +27,7 @@ const Profile = () => {
     address: '',
     profile: "default"
   });
-
+  const port = process.env.REACT_APP_PORT;
   useEffect(() => {
     const userData = localStorage.getItem('userData');
     let parsedUser;
@@ -39,7 +39,7 @@ const Profile = () => {
 
     const fetchUserDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/users`);
+        const response = await fetch(`${port}/users`);
         const data = await response.json();
 
         const person = data.find((u) => u.email === parsedUser?.email);
@@ -62,7 +62,7 @@ const Profile = () => {
     fetchUserDetails();
     const fetchBookings = async () => {
       console.log("inside fetchbookings")
-      const response = await fetch(`http://localhost:5000/bookings`);
+      const response = await fetch(`${port}/bookings`);
       const bookings = await response.json();
       const userbooking = bookings.filter((b) => b.useremail === parsedUser?.email);
       setBookings(userbooking);
@@ -85,7 +85,7 @@ const Profile = () => {
 
   const handleSave = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/users/${userData.id}`, {
+      const response = await fetch(`${port}/users/${userData.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

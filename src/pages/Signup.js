@@ -10,7 +10,7 @@ const SignUpPage = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-
+  const port = process.env.REACT_APP_PORT;
   const handleSignUp = async (e) => {
     e.preventDefault();
 
@@ -24,7 +24,7 @@ const SignUpPage = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:5000/users');
+      const response = await fetch(`${port}/users`);
       const users = await response.json();
 
       const existingUser = users.find((u) => u.email === email);
@@ -42,7 +42,7 @@ const SignUpPage = () => {
         role,  // Include role in user data
       };
 console.log(newUser,"newuser")
-      const addUserResponse = await fetch('http://localhost:5000/users', {
+      const addUserResponse = await fetch(`${port}/users`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

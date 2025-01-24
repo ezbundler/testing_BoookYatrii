@@ -9,17 +9,17 @@ const LoginPage = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-
+const port = process.env.REACT_APP_PORT;
   const handleLogin = async (e) => {
     e.preventDefault();
     
-    
+    console.log(port,"port checking")
     setLoading(true);
     setError('');
 
     try {
       
-      const response = await fetch('http://localhost:5000/users');
+      const response = await fetch(`${port}/users`);
       const users = await response.json();
 
      

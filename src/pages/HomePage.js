@@ -13,10 +13,10 @@ const HomePage = () => {
   const handleBooking = (id) => {
     navigate(`/seatBooking/${id}`);
   };
-
+  const port = process.env.REACT_APP_PORT;
   useEffect(() => {
     const LoadBuses = async () => {
-      const response = await fetch("http://localhost:5000/buses");
+      const response = await fetch(`${port}/buses`);
       const buses = await response.json();
       console.log(buses, "busses");
       setBusList(buses);

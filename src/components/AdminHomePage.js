@@ -22,15 +22,15 @@ const AdminHomePage = () => {
     fetchBuses();
     fetchUsers();
   }, []);
-
+const port = process.env.REACT_APP_PORT;
   const fetchBuses = async () => {
-    const response = await fetch("http://localhost:5000/buses");
+    const response = await fetch(`${port}/buses`);
     const data = await response.json();
     setBuses(data);
   };
 
   const fetchUsers = async () => {
-    const response = await fetch("http://localhost:5000/users");
+    const response = await fetch(`${port}/users`);
     const data = await response.json();
     setUsers(data);
   };
@@ -65,7 +65,7 @@ const AdminHomePage = () => {
       };
 
       const response = await fetch(
-        `http://localhost:5000/users/${selectedUser.id}`,
+        `${port}/users/${selectedUser.id}`,
         {
           method: "PUT",
           headers: {

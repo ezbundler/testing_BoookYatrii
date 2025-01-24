@@ -20,8 +20,9 @@ const SeatBooking = () => {
   const [BookingDate, setBookingDate] = useState("");
   const [bookings, setbookings] = useState();
 const [totalCost, setTotalCost] = useState();
+const port = process.env.REACT_APP_PORT;
   const fetchBookingByDate = async () => {
-    const response = await fetch(`http://localhost:5000/bookings`);
+    const response = await fetch(`${port}/bookings`);
     const data = await response.json();
     console.log(data, "bookingswdawdawdawda");
     setbookings(data);
@@ -38,7 +39,7 @@ const [totalCost, setTotalCost] = useState();
   const userdata =JSON.parse(localStorage.getItem('userData')) 
   const fetchBus = useCallback(async () => {
     try {
-      const response = await fetch(`http://localhost:5000/buses/${id}`);
+      const response = await fetch(`${port}/buses/${id}`);
       if (!response.ok) throw new Error("Failed to fetch bus data");
       const data = await response.json();
       setBus(data);
@@ -101,7 +102,7 @@ const [totalCost, setTotalCost] = useState();
     try {
       setIsBookingModalOpen(false);
 
-      const seatBook = await fetch(`http://localhost:5000/bookings`, {
+      const seatBook = await fetch(`${port}/bookings`, {
         method: "POST",
         headers: {
           "content-Type": "application/json",
@@ -117,7 +118,7 @@ const [totalCost, setTotalCost] = useState();
 
       toast.info("successfully done booking");
     } catch (err) {
-      alert("Error booking the seat. Please try again.");
+      toast.error("Error booking the seat. Please try again.");
     }
   };
 
